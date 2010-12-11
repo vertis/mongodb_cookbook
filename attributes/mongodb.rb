@@ -64,6 +64,20 @@ default[:mongodb][:autoresync]    = false
 default[:mongodb][:oplogsize]     = 0
 default[:mongodb][:opidmem]       = 0
 
+### SHARDING
+default[:mongodb][:shard_datadir]     = "/var/db/mongodb_shard"
+default[:mongodb][:shard_config]      = "/etc/mongodb_shard.conf"
+default[:mongodb][:shard_logfile]     = "/var/log/mongodb_shard.log"
+default[:mongodb][:shard_pidfile]     = "/var/run/mongodb_shard.pid"
+default[:mongodb][:shard_port] = 27018
+
+
+default[:mongodb][:config_datadir]     = "/var/db/mongodb_config"
+default[:mongodb][:config_config]      = "/etc/mongodb_config.conf"
+default[:mongodb][:config_logfile]     = "/var/log/mongodb_config.log"
+default[:mongodb][:config_pidfile]     = "/var/run/mongodb_config.pid"
+default[:mongodb][:config_port] = 27019
+
 
 
 ### BACKUP
