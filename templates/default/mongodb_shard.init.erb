@@ -54,8 +54,8 @@ DESC=database
 
 # Default defaults.  Can be overridden by the /etc/default/$NAME
 NAME=mongodb_shard
-CONF=<%= @node[:mongodb][:shard_config] %>
-PIDFILE=<%= @node[:mongodb][:shard_pidfile] %>
+CONF=<%= @configfile %>
+PIDFILE=<%= @pidfile %>
 
 # Include mongodb defaults if available
 if [ -f /etc/default/$NAME ] ; then

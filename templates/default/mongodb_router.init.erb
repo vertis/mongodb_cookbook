@@ -56,7 +56,7 @@ DESC=database
 NAME=mongodb
 CONF=<%= @node[:mongodb][:config] %>
 PIDFILE=<%= @node[:mongodb][:pidfile] %>
-CONFIG_SERVERS="localhost:27019"
+CONFIGDB="--configdb <%= @config_server_list %>"
 
 # Include mongodb defaults if available
 if [ -f /etc/default/$NAME ] ; then
@@ -112,7 +112,7 @@ running() {
 
 start_server() {
 # Start the process using the wrapper
-  start-stop-daemon --background --start --quiet --pidfile $PIDFILE --make-pidfile --chuid $DAEMONUSER --exec $DAEMON -- --configdb $CONFIG_SERVERS
+  start-stop-daemon --background --start --quiet --pidfile $PIDFILE --make-pidfile --chuid $DAEMONUSER --exec $DAEMON -- $CONFIGDB
   errcode=$?
   return $errcode
 }

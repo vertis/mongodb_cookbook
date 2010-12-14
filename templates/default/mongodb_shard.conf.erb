@@ -7,15 +7,17 @@
 # Note: if you run mongodb as a non-root user (recommended) you may
 # need to create and set permissions for this directory manually,
 # e.g., if the parent directory isn't mutable by the mongodb user.
-dbpath=<%= @node[:mongodb][:shard_datadir] %>
+dbpath=<%= @datadir %>
 
 #where to log
-logpath=<%= @node[:mongodb][:shard_logfile] %>
+logpath=<%= @logfile %>
 logappend=true
 
-port = <%= @node[:mongodb][:shard_port] %>
+port = <%= @port %>
 
 shardsvr = true
+
+replSet = <%= @setname %>
 
 
 
